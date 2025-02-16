@@ -51,12 +51,12 @@ const Add = ({ navigation, route }) => {
         let item = { username: username, email: email, phone: phone };
         mydata.push(item);
 
-        fetch("[my endpoint url would go here if I had one :(]",
+        fetch("https://d927a50e251b4e359277c50e77017023.api.mockbin.io/",
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "[my API Token would then be here]"
+                    "Authorization": "https://d927a50e251b4e359277c50e77017023.api.mockbin.io/"
                 }, body: JSON.stringify(mydata)
             })
             .then((response) => {

@@ -16,6 +16,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
 
     },
+    listStyle: {
+        borderWidth: 1,
+        padding: 10,
+        marginVertical: 5,
+        backgroundColor: "#f8f8f8",
+        borderRadius: 5,
+    },
 });
 const Home = ({ navigation }) => {
 
@@ -24,7 +31,7 @@ const Home = ({ navigation }) => {
     //useEffect
     useEffect(() => {
         //Add fetch()
-        fetch("they took my free trial away :( [endpoint url goes here]")
+        fetch("https://d927a50e251b4e359277c50e77017023.api.mockbin.io/")
             .then((response) => {
                 return response.json();
             })
@@ -36,7 +43,7 @@ const Home = ({ navigation }) => {
 
     const renderItem = ({ item }) => {
         return (
-            <View>
+            <View style={styles.listStyle}>
                 <Text>{item.username}</Text>
                 <Text>{item.email}</Text>
                 <Text>{item.phone}</Text>
@@ -48,12 +55,14 @@ const Home = ({ navigation }) => {
         <View style={styles.containerStyle}>
             <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('Add', { datastr: JSON.stringify(myData) })}>
                 <Text>Register Here</Text>
+
             </TouchableOpacity>
             <FlatList
                 data={myData}
                 renderItem={renderItem}
-                keyExtractor={(item, index) => index.toString()}
+
             />
+
 
         </View>
 
